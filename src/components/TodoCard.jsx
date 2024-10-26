@@ -1,7 +1,7 @@
 import { Draggable } from "react-beautiful-dnd";
 import { useState, useEffect, useRef} from "react";
 import axios from "axios";
-export default function TodoCard({todo,index}){
+export default function TodoCard({todo,index, setColumns}){
   
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState(todo.title);
@@ -16,7 +16,7 @@ export default function TodoCard({todo,index}){
   async function updateTodo(todoId, updatedData) {
     try {
       const response = await axios.put(
-        `${import.meta.env.VITE_BACKEND_URL}/${todoId}`,
+        `${import.meta.env.VITE_BACKEND_URL}/todos/${todoId}`,
         updatedData,
         {
           headers: {
@@ -89,7 +89,7 @@ export default function TodoCard({todo,index}){
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className="flex justify-between bg-gray-100 border-gray-700 border-2 px-2 py-2 text-lg font-semibold rounded-lg "
+          className="flex justify-between bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 border-gray-700 border-2 px-4 py-2 text-lg font-normal rounded-lg "
         >
           {isEditing ? (
             <input
@@ -99,11 +99,11 @@ export default function TodoCard({todo,index}){
               onChange={(e) => setTitle(e.target.value)}
               onBlur = {handleTitleUpdate}
               onKeyDown={handleKeyDown}
-              className="bg-gray-100 w-3/4 "
+              className="bg-gray-100 w-3/4 px-4 py-2 dark:bg-inherit dark:text-gray-100"
             />) : (
             <div 
               onClick={() => setIsEditing(true)}
-              className="w-5/6 break-words"
+              className="w-5/6 break-words dark:text-gray-100"
             >
               {todo.title}
             </div>)
@@ -112,7 +112,7 @@ export default function TodoCard({todo,index}){
           <button
             className=""
             onClick={deleteTodo}> 
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 dark:stroke-white stroke-black">
             <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
           </svg>
 
