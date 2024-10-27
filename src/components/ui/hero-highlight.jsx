@@ -52,6 +52,8 @@ export const HeroHighlight = ({
         }} />
       
       <div className={cn("relative z-20", className)}>{children}</div>
+      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white dark:from-black to-transparent pointer-events-none z-10" />
+        
     </div>)
   );
 };

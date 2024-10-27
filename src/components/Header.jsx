@@ -17,13 +17,11 @@ export default function Header(){
       if (darkMode) {
         document.documentElement.classList.remove("light");
         document.documentElement.classList.add("dark");
-        // document.documentElement.setAttribute("style", "color-scheme:dark;")
-        // metaTag.setAttribute('content', 'black-translucent');
+        
       } else {
         document.documentElement.classList.remove("dark");
         document.documentElement.classList.add("light");
-        // document.documentElement.setAttribute("style", "color-scheme:light;")
-        // metaTag.setAttribute('content', 'default');
+       
       }
     }, [darkMode]);
 
