@@ -25,10 +25,11 @@ export const HeroHighlight = ({
   return (
     (<div
       className={cn(
-        "relative h-[40rem] flex items-center bg-white dark:bg-black justify-center w-full group",
+        "relative h-[40rem] flex items-start pt-32 bg-white dark:bg-black justify-center w-full group",
         containerClassName
       )}
       onMouseMove={handleMouseMove}>
+      <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white dark:from-black to-transparent pointer-events-none z-10" />
       <div
         className="absolute inset-0 bg-dot-thick-neutral-300 dark:bg-dot-thick-neutral-800  pointer-events-none" />
       <motion.div
@@ -49,6 +50,7 @@ export const HeroHighlight = ({
             )
           `,
         }} />
+      
       <div className={cn("relative z-20", className)}>{children}</div>
     </div>)
   );

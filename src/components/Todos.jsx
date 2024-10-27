@@ -4,9 +4,8 @@ import { useState, useEffect } from "react";
 import Column from "./Column";
 import axios from "axios";
 export default function Todos({}){
-  const navigate = useNavigate();
   const token = localStorage.getItem("token");
-  const [todos, setTodos] = useState([]);
+  // const [todos, setTodos] = useState([]);
   const [columns, setColumns] = useState([
     { id: 1, name: "Open List", todos: [] },
     {
@@ -20,6 +19,7 @@ export default function Todos({}){
       todos: [],
     },
   ]);
+  const [loading,setLoading] = useState(true)
 
   const reorderTodos = (todos) => {
     return todos.map((todo,index) => ({
@@ -157,6 +157,7 @@ export default function Todos({}){
         .sort((a, b) => a.order - b.order),
     }));
     setColumns(updatedColumns);
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -168,15 +169,22 @@ export default function Todos({}){
 
 
   return(
-    <div className="">
-      <DragDropContext
+    <div className="py-4 lg:py-8 px-2">
+      {loading ? (
+        <div className="flex items-center justify-center h-screen">
+          <span className="text-gray-500 text-xl">Loading todos...</span>
+        </div>
+      ): (
+        <DragDropContext
         onDragEnd={onDragEnd}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 dark:bg-inherit min-h-screen">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 ">
             {columns.map((column) => (
               <Column key = {column.id} column= {column} setColumns = {setColumns}/>
             ))}
           </div>
       </DragDropContext>
+      )}
+    
     </div>
   )
 }

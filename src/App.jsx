@@ -7,7 +7,7 @@ import Hero from './pages/Hero';
 import TodoPage from './pages/TodosPage';
 function App() {
   return(
-    <div className='dark:bg-black '>
+    <div className=' '>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout/>}>

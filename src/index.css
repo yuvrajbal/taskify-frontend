@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.light{
+  background-color: white;
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 10px; /* Rounded corners */
+    border: 2px solid #525252; /* Optional border for spacing */
+  }
+}
+
+.dark{
+  background-color: black ;
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 10px; /* Rounded corners */
+    border: 2px solid #525252; /* Optional border for spacing */
+    padding-left: 5px;
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 2px; /* Adjust width as needed */
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px; /* Rounded corners */
+  border: 2px solid #e5e5e5; /* Optional border for spacing */
+
+}

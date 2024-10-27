@@ -3,20 +3,14 @@ import { LampContainer } from "../components/ui/lamp";
 
 export default function Hero(){
 
-  function Heading(){
-    return (
-      <div className="text-gray-100">
-        Taskify app that makes you a productivity master
-      </div>
-    )
-  }
+
   return(
-    <div className="dark:text-gray-200 text-neutral-800 ">
+    <div className="dark:text-gray-50 text-neutral-800  ">
         
-        <HeroHighlight className={"text-6xl font-bold text-center mx-20 max-w-7xl"}>
-          <div className="mb-10">Achieve More with Less Stress. Your</div> 
-            <Highlight>
-              Task Management Solution!
+        <HeroHighlight className={"lg:text-5xl md:text-4xl text-xl font-bold text-center max-w-3xl"}>
+          <div className="md:mb-8 mb-2 ">Simplify Your Workflow</div> 
+            <Highlight className={""}>
+              Achieve More with Taskify
             </Highlight>
         </HeroHighlight>
 
