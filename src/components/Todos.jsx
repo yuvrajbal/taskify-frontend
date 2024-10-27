@@ -3,9 +3,10 @@ import {useNavigate} from "react-router-dom"
 import { useState, useEffect } from "react";
 import Column from "./Column";
 import axios from "axios";
+import { ClimbingBoxLoader } from "react-spinners";
 export default function Todos({}){
+
   const token = localStorage.getItem("token");
-  // const [todos, setTodos] = useState([]);
   const [columns, setColumns] = useState([
     { id: 1, name: "Open List", todos: [] },
     {
@@ -142,6 +143,7 @@ export default function Todos({}){
         },
       });
       // console.log(response.data);
+
       return response.data;
     } catch (err) {
       return err;
@@ -172,7 +174,12 @@ export default function Todos({}){
     <div className="py-4 lg:py-8 px-2">
       {loading ? (
         <div className="flex items-center justify-center h-screen">
-          <span className="text-gray-500 text-xl">Loading todos...</span>
+          {/* <span className="text-gray-500 text-xl">Loading todos...</span> */}
+          <ClimbingBoxLoader
+            color="#737373"
+            size={30}
+          />
+
         </div>
       ): (
         <DragDropContext
