@@ -5,6 +5,7 @@ import Signin from './components/SignIn';
 import Layout from './Layout';
 import Hero from './pages/Hero';
 import TodoPage from './pages/TodosPage';
+import Signup from './components/SignUp';
 function App() {
   return(
     <div className=' '>
@@ -14,6 +15,8 @@ function App() {
             <Route path="" element= {<Hero/>}/>
             <Route path="todos" element={<TodoPage/>}/>
             <Route path="signin" element={<Signin/>}/>
+            <Route path="signup" element={<Signup/>}/>
+
           </Route>
         </Routes>
       </BrowserRouter>

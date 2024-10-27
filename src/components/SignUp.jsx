@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Signin(){
-  function Signinform(){
+export default function Signup(){
+  function Signupform(){
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -23,7 +23,7 @@ export default function Signin(){
     const handleSignInSubmission = async (event) => {
       event.preventDefault();
       try{
-        const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/signin`, {username, password});
+        const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/signup`, {username, password});
         console.log(response.data.token);
         setToken(response.data.token)
         
@@ -36,9 +36,9 @@ export default function Signin(){
         
           <div className=" dark:text-black flex min-h-full flex-1 flex-col justify-center px-6 pb-20  lg:px-8 ">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm mt-6">
-              <p className="dark:text-gray-400 text-sm text-center">New user ? <a href="/signup" className="hover:text-gray-50">Sign up</a> </p>
+              <p className="dark:text-gray-400 text-sm text-center">Already a user ? <a href="/signin" className="hover:text-gray-50">Sign in</a> </p>
               <h2 className="mt-6 text-center text-xl font-bold leading-9 tracking-tight dark:text-gray-200 text-black sm:text-2xl">
-                Sign in to continue
+                Sign Up to continue
               </h2>
             </div>
   
@@ -88,7 +88,7 @@ export default function Signin(){
                     type="submit"
                     className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
-                    Sign in
+                    Sign up
                   </button>
                 </div>
               </form>
@@ -102,6 +102,6 @@ export default function Signin(){
 
 
   return (
-    <Signinform/>  )
+    <Signupform/>  )
 }
 

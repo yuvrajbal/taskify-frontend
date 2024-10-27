@@ -92,7 +92,7 @@ export default function Header(){
               <img className="w-6 lg:w-9 h-auto" src="todo-list.svg" alt="todoicon" />
 
             </a>
-            <div className="font-medium hidden sm:block text-black dark:text-gray-200 text-base lg:text-xl">
+            <div className="font-medium block text-black dark:text-gray-200 text-base lg:text-xl">
               <a href ={"/todos"}>Taskify</a>
             </div>
         </div>
